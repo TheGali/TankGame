@@ -15,8 +15,13 @@ class TANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+private:
+	ATanky* ControlledTank = nullptr;
+
+
 public:
 	ATanky* GetControlledTank() const;
 
+	virtual void BeginPlay() override;
 
 };
