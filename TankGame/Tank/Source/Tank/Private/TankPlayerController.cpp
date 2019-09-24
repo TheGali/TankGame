@@ -3,6 +3,12 @@
 
 #include "TankPlayerController.h"
 
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("Player controller ticking"));
+}
+
 void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -17,6 +23,8 @@ void ATankPlayerController::BeginPlay()
 	}
 	
 }
+
+
 
 ATanky* ATankPlayerController::GetControlledTank() const
 {
