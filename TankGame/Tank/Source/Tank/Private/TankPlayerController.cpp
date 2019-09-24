@@ -40,7 +40,7 @@ void ATankPlayerController::AimTowardsCrossHair()
 	FVector OutHitLocation; // Out Paramater
 	if (GetSightRayHitLocation(OutHitLocation)) // has "side effect", is goin to line trace
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("Hit Location : %s"), *OutHitLocation.ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("Look Direction : %s"), *OutHitLocation.ToString());
 		// TODO tell controlled tank to aim at this point
 	}
 }
@@ -52,8 +52,20 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& OutHitLocation) cons
 	int32 ViewportSizeX, ViewportSizeY;
 	GetViewportSize(ViewportSizeX, ViewportSizeY);
 	auto ScreenLocation = FVector2D(ViewportSizeX * CrosshairXLocation, ViewportSizeY * CrosshairYLocation);
-	UE_LOG(LogTemp, Warning, TEXT("ScreenLocation : %s"), *ScreenLocation.ToString());
+	
+
+
 	// "De-project" the screen position of the crosshair to a world direction
+	FVector CameraWorldLocation;
+	FVector WorldDirection;
+	if (DeprojectScreenPositionToWorld(ScreenLocation.X, ScreenLocation.Y, CameraWorldLocation, WorldDirection))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Look Direction : %s"), *WorldDirection.ToString());
+	}
+
+
+
+
 	//Line-trace along that look direction, and see what we hit (up to max)
 	return true;
 }
