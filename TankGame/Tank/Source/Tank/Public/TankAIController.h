@@ -14,14 +14,13 @@ UCLASS()
 class TANK_API ATankAIController : public AAIController
 {
 	GENERATED_BODY()
-	
-private:
-	ATanky* ControlledTank = nullptr;
-
-
 public:
-	ATanky* GetControlledTank() const;
-
 	virtual void BeginPlay() override;
+
+private:
+
+	ATanky* GetPlayerTank() const;
+
+	ATanky* PlayerTank = nullptr;
 
 };
