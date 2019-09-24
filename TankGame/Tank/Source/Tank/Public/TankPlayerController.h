@@ -30,5 +30,6 @@ public:
 
 	virtual void Tick(float DeltaTime) override;
 	
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 
 };
