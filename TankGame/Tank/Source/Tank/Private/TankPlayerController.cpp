@@ -41,9 +41,7 @@ void ATankPlayerController::AimTowardsCrossHair()
 	FVector HitLocation; // Out Paramater
 	if (GetSightRayHitLocation(HitLocation)) // has "side effect", is goin to line trace
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Look Direction : %s"), *HitLocation.ToString());
-		// TODO tell controlled tank to aim at this point
-		return;
+		GetControlledTank()->AimAt(HitLocation);
 	}
 }
 
