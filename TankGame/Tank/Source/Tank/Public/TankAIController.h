@@ -2,10 +2,12 @@
 
 #pragma once
 
-#include "Tanky.h"
+
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
+
+class ATanky;
 
 /**
  * 

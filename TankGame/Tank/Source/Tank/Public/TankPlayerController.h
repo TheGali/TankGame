@@ -2,11 +2,12 @@
 
 #pragma once
 
-#include "Tanky.h"
+
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "TankPlayerController.generated.h"
 
+class ATanky;
 /**
  * 
  */

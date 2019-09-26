@@ -2,6 +2,7 @@
 
 #include "Engine/World.h"
 #include "Engine/EngineTypes.h"
+#include "Tanky.h"
 #include "TankPlayerController.h"
 
 void ATankPlayerController::Tick(float DeltaTime)
