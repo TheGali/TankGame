@@ -3,3 +3,6 @@ TankGame/Tank/Content/StarterContent/
 TankGame/Tank/Saved/
 TankGame/Tank/Binaries/Win64/UE4Editor-Tank-6432.pdb
 TankGame/Tank/Binaries/
+TankGame/BPZombie/
+TankGame/ZombieGali/ZombieGali.uproject
+TankGame/ZombieGali/
