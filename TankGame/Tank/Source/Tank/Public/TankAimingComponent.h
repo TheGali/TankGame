@@ -22,12 +22,16 @@ public:
 
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
+	void SetTurretReference(UTankBarrel* TurretToSet);
+
 	//TODO add SetTurretReference
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 private:
 	UTankBarrel* Barrel = nullptr;
+
+	UTankBarrel* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
 	
