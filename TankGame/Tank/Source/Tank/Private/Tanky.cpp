@@ -2,12 +2,17 @@
 
 
 #include "TankAimingComponent.h"
+#include "TankBarrel.h"
+#include "Projectile.h"
+#include "GameFramework/Actor.h"
+#include "Engine/World.h"
 #include "Tank.h"
 #include "Tanky.h"
 
 void ATanky::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
+	Barrel = BarrelToSet;
 }
 
 void ATanky::SetTurretReference(UTankTurret* TurretToSet)
@@ -46,4 +51,20 @@ void ATanky::AimAt(FVector HitLocation)
 {
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 	
+}
+
+void ATanky::Fire()
+{
+	
+	UE_LOG(LogTemp, Warning, TEXT("f: Tank Fires"));
+
+	if (!Barrel) { return; }
+	
+	GetWorld()->SpawnActor<AProjectile>(
+		ProjectileBlueprint,
+		Barrel->GetSocketLocation(FName("Projectile")),
+		Barrel->GetSocketRotation(FName("Projectile"))
+		);
+
+
 }
