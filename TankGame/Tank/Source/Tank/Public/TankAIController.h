@@ -24,10 +24,6 @@ private:
 
 	virtual void Tick(float DeltaTime) override;
 
-	ATanky* GetPlayerTank() const;
-
-	ATanky* GetControlledTank() const;
-
-	ATanky* PlayerTank = nullptr;
+	
 
 };
