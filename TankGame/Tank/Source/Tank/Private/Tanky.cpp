@@ -4,6 +4,7 @@
 #include "TankAimingComponent.h"
 #include "TankBarrel.h"
 #include "Projectile.h"
+#include "TankTrack.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
 #include "Tank.h"
@@ -13,6 +14,11 @@ void ATanky::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	TankAimingComponent->SetBarrelReference(BarrelToSet);
 	Barrel = BarrelToSet;
+}
+
+void ATanky::SetTrackReference(UTankTrack* TrackToSet)
+{
+	Track = TrackToSet;
 }
 
 void ATanky::SetTurretReference(UTankTurret* TurretToSet)

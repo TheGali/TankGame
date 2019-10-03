@@ -10,6 +10,7 @@
 //Forward Declarations
 class UTankBarrel; 
 class UTankTurret;
+class UTankTrack;
 class AProjectile;
 class UTankAimingComponent; 
 
@@ -26,6 +27,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetTurretReference(UTankTurret* TurretToSet);
+
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetTrackReference(UTankTrack* TrackToSet);
 
 	void AimAt(FVector HitLocation);
 
@@ -61,6 +65,7 @@ private:
 	
 
 	UTankBarrel* Barrel = nullptr;
+	UTankTrack* Track = nullptr;
 
 	
 	double LastFireTime;
