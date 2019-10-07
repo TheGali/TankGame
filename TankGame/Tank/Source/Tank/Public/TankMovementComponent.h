@@ -21,6 +21,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void InitializeComponent(UTankTrack* LeftTracktoSet, UTankTrack* RightTracktoSet);
 
+	UFUNCTION(BlueprintCallable, Category = Input)
+	void IntendTurnRight(float Throw);
+
 private:
 	UTankTrack* LeftTrack = nullptr;
 	UTankTrack* RightTrack = nullptr;
