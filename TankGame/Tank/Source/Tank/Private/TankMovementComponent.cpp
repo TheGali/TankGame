@@ -2,6 +2,7 @@
 
 
 #include "TankTrack.h"
+#include "Math/Vector.h"
 #include "TankMovementComponent.h"
 
 
@@ -17,12 +18,13 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 {
 	//No need to call super as we're replacing the functionality
 
-	auto TankForward = GetOwner()->GetActorForwardVector.GetClampedToSize(-1.0f, 1.0f);
-	auto AIForwardIntention = MoveVelocity.GetClampedToSize(-1.0f, 1.0f);
+	auto TankForward = GetOwner()->GetActorForwardVector.GetSafeNormal();
+	auto AIForwardIntention = MoveVelocity.GetSafeNormal();
 	auto ForwardThrow = FVector::DotProduct(TankForward, AIForwardIntention);
-	UE_LOG(LogTemp, Warning, TEXT("Forward Throw is : %s"), ForwardThrow);
-
+	
 	IntendMoveForward(ForwardThrow);
+
+	//UE_LOG(LogTemp, Warning, TEXT("Forward Throw is : %s"), ForwardThrow);
 
 }
 
